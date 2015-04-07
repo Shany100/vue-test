@@ -1,0 +1,29 @@
+
+.items{
+	
+}
+.items li label{
+	cursor: pointer;
+}
+.items li.sold-out{
+	text-decoration: line-through;
+	color: #9A9A9A;
+}
+.hide{
+	display: none;
+}
+.highlight{
+	color: #5BC0DE;
+}
+
+.phone-list li, .type-list li{
+	cursor: pointer;
+	float: left;
+	margin-right: 20px;
+}
+.phone-list, .type-list{
+	overflow: hidden;
+}
+
+
+

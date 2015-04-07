@@ -1,0 +1,49 @@
+<div>
+	<h2>{{title}}</h2>
+    <ul class="items">
+    	<li class="{{stock > 0 ? '': 'sold-out' }}"
+    		v-repeat="items">
+    		<label>
+    			{{$index+1}}, {{name}} / {{stock}}
+    			<input class="{{stock > 0 ? '' : 'hide'}}" 
+    				   type="radio" 
+    				   name="phone" 
+    				   value="{{name}}" 
+    				   v-model="selected" />
+    		</label>	
+    	</li>
+    </ul>
+    <p>
+    	已选产品：
+    	<span class="highlight">
+    		{{selected ? selected : '未选择' }}
+    	</span>
+    </p>
+    <div>
+    	<button type="button"
+	    		v-on="click: clickHandler(this)">
+	    	获取手机产品信息
+    	</button>
+    	<h2>手机产品：</h2>
+    	<ul class="phone-list">
+    		<li v-repeat="phone: phones" v-on="click: phoneHandler(phone)">
+    			{{phone.name}}
+    			<img v-attr="src: phone.pic" style="vertical-align: middle;" width="100" height="100" />
+    		</li>
+    	</ul>
+    	<h2>制式：</h2>
+    	<ul class="type-list">
+    		<li v-repeat="type: types" v-on="click: typeHandler(type)">
+    			{{type.name}}
+    		</li>
+    	</ul>
+    	<h2>颜色：</h2>
+    	<ul class="color-list">
+    		<li v-repeat="color: colors" v-on="click: colorHandler(color)">
+    			{{color.name}}
+    		</li>
+    	</ul>
+    	<h2>自定义组件：</h2>
+    	<div v-component="seven-modal"></div>
+    </div>
+</div>
